@@ -1,23 +1,23 @@
-from animal import Animal
+from zooAnimales.animal import Animal
 
 class Reptil(Animal):
     _listado: list = []
     iguanas: int = 0
     serpientes: int = 0
 
-    def __init__(self, nombre, edad, habitat, genero, zona = None,
-                 colorEscamas = None, largoCola = None) -> None:
+    def __init__(self, nombre, edad, habitat, genero,
+                 colorEscamas = None, largoCola = None,  zona = None) -> None:
         super().__init__(nombre, edad, habitat, genero, zona)
-        if colorEscamas:
-            self._colorEscamas = colorEscamas
-        if largoCola:
-            self._largoCola = largoCola
+        self._colorEscamas = colorEscamas
+        self._largoCola = largoCola
         self._listado.append(self)
 
-    def getListado(self):
-        return self._listado
-    def setListado(self, listado):
-        self._listado = listado
+    @classmethod
+    def getListado(cls):
+        return cls._listado
+    @classmethod
+    def setListado(cls, listado):
+        cls._listado = listado
 
     def getColorEscamas(self):
         return self._colorEscamas

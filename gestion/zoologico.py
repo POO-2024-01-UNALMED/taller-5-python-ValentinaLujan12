@@ -1,5 +1,3 @@
-from zona import Zona
-
 class Zoologico:
     def __init__(self, nombre, ubicacion) -> None:
         self._nombre: str = nombre
@@ -16,12 +14,12 @@ class Zoologico:
     def setUbicacion(self, ubi):
         self._ubicacion = ubi
 
-    def getZonas(self):
+    def getZona(self):
         return self._zonas
     def setNombre(self, zonas):
         self._zonas = zonas
 
-    def agregarzonas(self, zona): 
+    def agregarZonas(self, zona): 
         self._zonas.append(zona)
 
     def cantidadTotalAnimales(self):

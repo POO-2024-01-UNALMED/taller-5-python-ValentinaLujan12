@@ -1,20 +1,22 @@
-from animal import Animal
+from zooAnimales.animal import Animal
 
 class Ave(Animal):
     _listado: list = []
     halcones: int = 0
     aguilas: int = 0
-    def __init__(self, nombre, edad, habitat, genero, zona = None,
-                 colorPlumas = None) -> None:
+    
+    def __init__(self, nombre, edad, habitat, genero,
+                 colorPlumas = None, zona = None) -> None:
         super().__init__(nombre, edad, habitat, genero, zona)
-        if colorPlumas:
-            self._colorPlumas = colorPlumas
+        self._colorPlumas = colorPlumas
         self._listado.append(self)
 
-    def getListado(self):
-        return self._listado
-    def setListado(self, listado):
-        self._listado = listado
+    @classmethod
+    def getListado(cls):
+        return cls._listado
+    @classmethod
+    def setListado(cls, listado):
+        cls._listado = listado
 
     def getColorPlumas(self):
         return self._colorPlumas

@@ -1,32 +1,32 @@
-from animal import Animal
+from zooAnimales.animal import Animal
 
 class Anfibio(Animal):
     _listado: list = []
     ranas: int = 0
     salamandras: int = 0
     
-    def __init__(self, nombre, edad, habitat, genero, zona = None,
-                 colorPiel = None, venenoso = None) -> None:
+    def __init__(self, nombre, edad, habitat, genero,
+                 colorPiel = None, venenoso = None, zona = None) -> None:
         super().__init__(nombre, edad, habitat, genero, zona)
-        if colorPiel:
-            self._colorPiel = colorPiel
-        if venenoso: 
-            self._venenoso = venenoso
+        self._colorPiel = colorPiel
+        self._venenoso = venenoso
         self._listado.append(self)
 
-    def getListado(self):
-        return self._listado
-    def setListado(self, listado):
-        self._listado = listado
+    @classmethod
+    def getListado(cls):
+        return cls._listado
+    @classmethod
+    def setListado(cls, listado):
+        cls._listado = listado
 
     def getColorPiel(self):
         return self._colorPiel
     def setColorPiel(self, color):
         self._colorPiel = color
 
-    def getVenenoso(self):
+    def isVenenoso(self):
         return self._venenoso
-    def setLargoCola(self, venenoso):
+    def setVenenoso(self, venenoso):
         self._venenoso= venenoso
 
     @staticmethod

@@ -1,25 +1,25 @@
-from animal import Animal
+from zooAnimales.animal import Animal
 
 class Mamifero(Animal):
     _listado: list = []
     caballos: int = 0
     leones: int = 0
 
-    def __init__(self, nombre, edad, habitat, genero, zona = None,
-                 pelaje = None, patas = None) -> None:
-        super().__init__(nombre, edad, habitat, genero, zona)
-        if pelaje: 
-            self._pelaje = pelaje
-        if patas:
-            self._patas = patas
+    def __init__(self, nombre, edad, habitat, genero,
+                 pelaje = None, patas = None, zona = None) -> None:
+        super().__init__(nombre, edad, habitat, genero, zona) 
+        self._pelaje = pelaje
+        self._patas = patas
         self._listado.append(self)
 
-    def getListado(self):
-        return self._listado
-    def setListado(self, listado):
-        self._listado = listado
+    @classmethod
+    def getListado(cls):
+        return cls._listado
+    @classmethod
+    def setListado(cls, listado):
+        cls._listado = listado
 
-    def getPelaje(self):
+    def isPelaje(self):
         return self._pelaje
     def setPelaje(self, pelaje):
         self._pelaje = pelaje
